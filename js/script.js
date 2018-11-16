@@ -6,6 +6,9 @@
     var imgAcertou = document.querySelector("#imgAcertou");
     var reset = document.querySelector("#reset");
     var placar = document.querySelector("#placar");
+    var controler = document.querySelector("#controler");
+    var info = document.querySelector("#info");
+
 
     for(var i = 0; i < 16; i++){
         var img = {
@@ -19,10 +22,11 @@
 
     function startGame(){
         matches = 0;
-        reset.style.opacity = 1;
+        // reset.style.opacity = 1;
         cartasViradas = [];
         images = embaralhaCartas(images);
-        placar.style.opacity = 1;
+        controler.style.opacity = 1;
+        info.style.opacity = 1;
         placar.innerHTML = "PLACAR: "+ matches;
         
         var frontFaces = document.getElementsByClassName("front");
@@ -83,7 +87,7 @@
                     matchCardSing();
 
                     matches++;
-                    placar.innerHTML = "PLACAR: "+ matches;
+                    placar.innerHTML = "ACERTOU: "+ matches;
                     cartasViradas = [];
 
                     if(matches === 8){
@@ -103,8 +107,9 @@
 
     
     function gameOver(){
-        reset.style.opacity = 0;
-        placar.style.opacity = 0;
+        // reset.style.opacity = 0;
+        controler.style.opacity = 0;
+        info.style.opacity = 0;
         modalGameOver.style.zIndex = 10;
         modalGameOver.addEventListener("click",startGame,false);
     }
